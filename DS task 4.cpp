@@ -18,29 +18,29 @@ void task_4_1()
     getline(cin, s); //5, 6, 2, +, *, 12, 4, /, -
     s += ',';
 
-    int st[100000], pos = -1, n, a, b;
+    int stck[100000], pos = -1, n, a, b;
 
     for(int i=0; i<s.size(); i++){
         if(s[i]==','){
             if(t[0]>='0' && t[0]<='9'){
                 n = stoi(t);
-                st[++pos] = n; //n is pushed to the stack
+                stck[++pos] = n; //n is pushed to the stack
             }
             else{
-                b = st[pos--]; //popped the top element
-                a = st[pos--]; //popped the second top element
+                b = stck[pos--]; //popped the top element
+                a = stck[pos--]; //popped the second top element
 
                 if(t[0]=='+'){
-                    st[++pos] = a + b;
+                    stck[++pos] = a + b;
                 }
                 else if(t[0]=='-'){
-                    st[++pos] = a - b;
+                    stck[++pos] = a - b;
                 }
                 else if(t[0]=='*'){
-                    st[++pos] = a * b;
+                    stck[++pos] = a * b;
                 }
                 else if(t[0]=='/'){
-                    st[++pos] = a / b;
+                    stck[++pos] = a / b;
                 }
             }
 
@@ -49,14 +49,14 @@ void task_4_1()
         else if((s[i]>='0' && s[i]<='9') || s[i] != ' ') t += s[i];
     }
 
-    cout<<"OUTPUT: "<<st[0]<<endl;
+    cout<<"OUTPUT: "<<stck[0]<<endl;
 }
+
 
 int factorial(int n){
     if(n == 0) return 1;
     return n * factorial(n-1);
 }
-
 void task_4_2() //factorial
 {
     cout<<"Enter a integer value to calculate factorial: ";
@@ -88,7 +88,6 @@ void tower_of_hanoi(int n, char BEG, char AUX, char END){
     cout<<BEG<<" -> "<<END<<endl;
     tower_of_hanoi(n-1, AUX, BEG, END);
 }
-
 void task_4_4() //tower of hanoi
 {
     cout<<"Enter the number of plates: ";
@@ -107,7 +106,6 @@ void INSERT(char Q[], int& st, int& ed, char ch){
     Q[ed] = ch;
     ed++;
 }
-
 void DELETE(char Q[], int& st, int& ed){
     if(st > ed){
         cout<<"UNDERFLOW! Queue is empty!"<<endl;
@@ -116,13 +114,11 @@ void DELETE(char Q[], int& st, int& ed){
     cout<<"Front is deleted!"<<endl;
     st++;
 }
-
 void queue_show(char Q[], int st, int ed){
     cout<<"Queue: ";
     for(int i=st; i<=ed; i++) cout<<Q[i]<<" ";
     cout<<endl;
 }
-
 void task_4_5()
 {
     char Queue[100000];
@@ -164,8 +160,6 @@ void task_4_5()
     DELETE(Queue, st, ed);
     queue_show(Queue, st, ed);
 }
-
-
 
 
 int main()
