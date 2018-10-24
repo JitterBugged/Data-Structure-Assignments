@@ -41,24 +41,6 @@ void task_1_1()
     }
 }
 
-int find_substring(string t, string p){
-    int n = t.size() , m = p.size(), indx = -1;
-    for(int i=0; i+m<n; i++){
-        bool found = true;
-        for(int j=0; j<m; j++){
-            if(t[i+j] != p[j]){
-                found = false;
-                break;
-            }
-        }
-        if(found){
-            indx = i+1;
-            break;
-        }
-    }
-
-    return indx;
-}
 
 void task_1_2()
 {
@@ -81,6 +63,7 @@ void task_1_2()
         cout<<"OUTPUT: "<<s<<endl;
     }
 }
+
 
 void task_1_3()
 {
@@ -105,6 +88,26 @@ void task_1_3()
         s = temp;
         cout<<"OUTPUT: "<<s<<endl;
     }
+}
+
+
+int find_substring(string t, string p){
+    int n = t.size() , m = p.size(), indx = -1;
+    for(int i=0; i+m<n; i++){
+        bool found = true;
+        for(int j=0; j<m; j++){
+            if(t[i+j] != p[j]){
+                found = false;
+                break;
+            }
+        }
+        if(found){
+            indx = i+1;
+            break;
+        }
+    }
+
+    return indx;
 }
 
 void task_1_4()
@@ -147,6 +150,8 @@ void task_1_4()
         cout<<"OUTPUT: "<<s<<endl;
     }
 }
+
+
 
 void task_1_5()
 {
