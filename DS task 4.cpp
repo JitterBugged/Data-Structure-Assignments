@@ -164,7 +164,6 @@ void task_4_5()
 
 int main()
 {
-
     cout<<"*** Evaluating task 4.1 ***"<<endl;
     task_4_1();
 
